@@ -29,7 +29,7 @@ export default function Lotto({data}){
   const east13th = data.find((item) => item.conference === 'east' && item.seed === '13th').collectionName.slice(0,3);
 
   let east14th
-  pathnameYear > 2004 ? east14th = data.find((item) => item.conference === 'east' && item.seed === '15th').collectionName.slice(0,3) : east14th = null
+  pathnameYear > 2004 ? east14th = data.find((item) => item.conference === 'east' && item.seed === '14th').collectionName.slice(0,3) : east14th = null
 
   let east15th
   pathnameYear > 2004 ? east15th = data.find((item) => item.conference === 'east' && item.seed === '15th').collectionName.slice(0,3) : east15th = null
@@ -52,7 +52,7 @@ export default function Lotto({data}){
       <TeamLogo alt={east11th} src={east11th} year={pathnameYear}/>
       <TeamLogo alt={east12th} src={east12th} year={pathnameYear}/>
       <TeamLogo alt={east13th} src={east13th} year={pathnameYear}/>
-      {east15th ? <TeamLogo alt={east14th} src={east14th} year={pathnameYear}/> : null}
+      {east14th ? <TeamLogo alt={east14th} src={east14th} year={pathnameYear}/> : null}
       {east15th ? <TeamLogo alt={east15th} src={east15th} year={pathnameYear}/> : null}
     </section>
   </footer>

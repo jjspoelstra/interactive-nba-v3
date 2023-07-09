@@ -4,7 +4,7 @@ import TeamLogo from './TeamLogo';
 
 
 
-export default function WestBracket({data}) {
+export default function WestBracket({data, bracket}) {
 
   if (data === null) {
     // Render a loading indicator or placeholder
@@ -22,6 +22,36 @@ export default function WestBracket({data}) {
   const west6th = data.find((item) => item.seed === '6th').collectionName.slice(0,3);
   const west7th = data.find((item) => item.seed === '7th').collectionName.slice(0,3);
   const west8th = data.find((item) => item.seed === '8th').collectionName.slice(0,3);
+
+  const west1st8thMatchup = bracket.data.find(item => item.round === 'Western Conference First Round' && (item.team1 === west1st || item.team2 === west1st))
+  let west1st8thWinner
+  west1st8thMatchup.team1Wins === '4' ? west1st8thWinner = west1st8thMatchup.team1 : west1st8thWinner = west1st8thMatchup.team2
+
+  const west4th5thMatchup = bracket.data.find(item => item.round === 'Western Conference First Round' && (item.team1 === west4th || item.team2 === west4th))
+  let west4th5thWinner
+  west4th5thMatchup.team1Wins === '4' ? west4th5thWinner = west4th5thMatchup.team1 : west4th5thWinner = west4th5thMatchup.team2
+
+  const west2nd7thMatchup = bracket.data.find(item => item.round === 'Western Conference First Round' && (item.team1 === west2nd || item.team2 === west2nd))
+  let west2nd7thWinner
+  west2nd7thMatchup.team1Wins === '4' ? west2nd7thWinner = west2nd7thMatchup.team1 : west2nd7thWinner = west2nd7thMatchup.team2
+
+  const west3rd6thMatchup = bracket.data.find(item => item.round === 'Western Conference First Round' && (item.team1 === west3rd || item.team2 === west3rd))
+  let west3rd6thWinner
+  west3rd6thMatchup.team1Wins === '4' ? west3rd6thWinner = west3rd6thMatchup.team1 : west3rd6thWinner = west3rd6thMatchup.team2
+
+
+  const westUpperMatchup = bracket.data.find(item => item.round === 'Western Conference Semifinals' && (item.team1 === west1st8thWinner || item.team2 === west1st8thWinner))
+  let westUpperWinner
+  westUpperMatchup.team1Wins === '4' ? westUpperWinner = westUpperMatchup.team1 : westUpperWinner = westUpperMatchup.team2
+
+  const westLowerMatchup = bracket.data.find(item => item.round === 'Western Conference Semifinals' && (item.team1 === west3rd6thWinner || item.team2 === west3rd6thWinner))
+  let westLowerWinner
+  westLowerMatchup.team1Wins === '4' ? westLowerWinner = westLowerMatchup.team1 : westLowerWinner = westLowerMatchup.team2
+
+
+  const westFinalsMatchup = bracket.data.find(item => item.round === 'Western Conference Finals' && (item.team1 === westUpperWinner || item.team2 === westUpperWinner))
+  let westFinalsWinner
+  westFinalsMatchup.team1Wins === '4' ? westFinalsWinner = westFinalsMatchup.team1 : westFinalsWinner = westFinalsMatchup.team2
 
     return (
 
@@ -58,14 +88,14 @@ export default function WestBracket({data}) {
     <section className="secondRound left">
       <div className="secondLeft westUpper click2">
         <section className="matchupSecondWest">
-          <img className="west1st8thWinner" src="" alt="" />
-          <img className="west4th5thWinner" src="" alt="" />
+        <TeamLogo alt={west1st8thWinner} src={west1st8thWinner} year={pathnameYear}/>
+          <TeamLogo alt={west4th5thWinner} src={west4th5thWinner} year={pathnameYear}/>
         </section>
       </div>
       <div className="secondLeft westLower click2">
         <section className="matchupSecondWest">
-          <img className="west2nd7thWinner" src="" alt="" />
-          <img className="west3rd6thWinner" src="" alt="" />
+        <TeamLogo alt={west2nd7thWinner} src={west2nd7thWinner} year={pathnameYear}/>
+          <TeamLogo alt={west3rd6thWinner} src={west3rd6thWinner} year={pathnameYear}/>
         </section>
       </div>
     </section>
@@ -73,24 +103,18 @@ export default function WestBracket({data}) {
     <section className="thirdRound left">
       <div className="thirdWest westFinal click3">
         <section className="matchupThirdWest">
-          <img className="west1st8th4th5thWinner" src="" alt="" />
-          <img className="west2nd7th3rd6thWinner" src="" alt="" />
+        <TeamLogo alt={westUpperWinner} src={westUpperWinner} year={pathnameYear}/>
+          <TeamLogo alt={westLowerWinner} src={westLowerWinner} year={pathnameYear}/>
         </section>
       </div>
     </section>
 
     <section className="finals click4">
-      <img className="westFinalistWinner" src="" alt="" />
+    <TeamLogo alt={westFinalsWinner} src={westFinalsWinner} year={pathnameYear}/>
       <div className="blank"></div>
       <div className="border"></div>
     </section>
   </section>
-
-  <section className="champion">
-    <img className="finalsChampion" src="" alt="" />
-  </section>
-
-
 
         </>
         

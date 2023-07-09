@@ -11,6 +11,9 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react';
 
 import { fetchData } from '@/app/components/fetchData';
+import Champion from '@/app/components/Champion';
+
+import { AppProvider } from '@/app/components/statsContext';
 // Define the animation variants
 
 
@@ -26,18 +29,24 @@ export default function Home() {
     westData: null,
     eastData: null,
     lottoData: null,
+    containerData: null,
   });
+
+  let containerData
   
 
   useEffect(() => {
   fetchData(pathnameYear)
     .then((data) => {
       const sortedData = {
+        playoffData: data.find(collection => collection.collectionName === 'playoffStats') ,
         westData: [],
         eastData: [],
         lottoData: [],
+        containerData: data
       };
       //attempting to make this faster
+
       data.forEach((collection) => {
         const { collectionName, data: items } = collection;
         
@@ -48,7 +57,7 @@ export default function Home() {
             sortedData.eastData.push({ collectionName, ...item });
           } else if (item.conference === 'west') {
             sortedData.westData.push({ collectionName, ...item });
-          }
+          } 
         });
       });
       
@@ -58,18 +67,19 @@ export default function Home() {
 }, []);
 
   
-  console.log(data.lottoData) 
 
     return (
-      <>
+      <AppProvider>
         <Header />
         <main>
           <WestBracket data={data.westData} bracket={data.playoffData}/>
-          <StatsContainer />
+          <Champion bracket={data.playoffData}/>
+          <StatsContainer data={data.containerData}/>
           <EastBracket data={data.eastData} bracket={data.playoffData}/>
+          
         </main>
         <Lotto data={data.lottoData} />
-      </>
+        </AppProvider>
     );
    
 }

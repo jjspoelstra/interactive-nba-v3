@@ -100,21 +100,26 @@ main {
   padding: 5% 0 5% 0;
 }
 
-.finals, .finalsEast {
-  height: 100%;
-}
 
-.finalsEast{
-  transform: rotate(90deg);
-  transform: scaleX(-1)
-    
-}
 
-.finals .border, .finalsEast .border {
+.finals .border {
   height: 25%;
   border-top: 5px solid grey;
 }
+.border{
+  height: 0%;
+  border-top: 5px solid grey;
+}
 
+.finalsEast .teamLogo, .finals .teamLogo{
+  position: fixed;
+  right: 35.5%;
+}
+
+.finals .teamLogo{
+  position: fixed;
+  left: 35.25%;
+}
 
 
 
@@ -304,7 +309,7 @@ footer {
 
 #stats{
   position: absolute;
-  transform: translate(-55.5%, 5%);
+  transform: translate(-55.5%, 140%);
   border-radius: 40px;
   height: 320px;
   width: 800px;

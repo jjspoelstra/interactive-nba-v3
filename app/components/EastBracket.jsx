@@ -1,9 +1,11 @@
+
+
 import { usePathname } from 'next/navigation'
 import TeamLogo from './TeamLogo';
 
 
 
-export default function EastBracket({data}) {
+export default function EastBracket({data, bracket}) {
 
   if (data === null) {
     // Render a loading indicator or placeholder
@@ -24,6 +26,38 @@ export default function EastBracket({data}) {
   const east7th = data.find((item) => item.seed === '7th').collectionName.slice(0,3);
   const east8th = data.find((item) => item.seed === '8th').collectionName.slice(0,3);
 
+
+
+  const east1st8thMatchup = bracket.data.find(item => item.round === 'Eastern Conference First Round' && (item.team1 === east1st || item.team2 === east1st))
+  let east1st8thWinner
+  east1st8thMatchup.team1Wins === '4' ? east1st8thWinner = east1st8thMatchup.team1 : east1st8thWinner = east1st8thMatchup.team2
+
+  const east4th5thMatchup = bracket.data.find(item => item.round === 'Eastern Conference First Round' && (item.team1 === east4th || item.team2 === east4th))
+  let east4th5thWinner
+  east4th5thMatchup.team1Wins === '4' ? east4th5thWinner = east4th5thMatchup.team1 : east4th5thWinner = east4th5thMatchup.team2
+
+  const east2nd7thMatchup = bracket.data.find(item => item.round === 'Eastern Conference First Round' && (item.team1 === east2nd || item.team2 === east2nd))
+  let east2nd7thWinner
+  east2nd7thMatchup.team1Wins === '4' ? east2nd7thWinner = east2nd7thMatchup.team1 : east2nd7thWinner = east2nd7thMatchup.team2
+
+  const east3rd6thMatchup = bracket.data.find(item => item.round === 'Eastern Conference First Round' && (item.team1 === east3rd || item.team2 === east3rd))
+  let east3rd6thWinner
+  east3rd6thMatchup.team1Wins === '4' ? east3rd6thWinner = east3rd6thMatchup.team1 : east3rd6thWinner = east3rd6thMatchup.team2
+
+
+  const eastUpperMatchup = bracket.data.find(item => item.round === 'Eastern Conference Semifinals' && (item.team1 === east1st8thWinner || item.team2 === east1st8thWinner))
+  let eastUpperWinner
+  eastUpperMatchup.team1Wins === '4' ? eastUpperWinner = eastUpperMatchup.team1 : eastUpperWinner = eastUpperMatchup.team2
+
+  const eastLowerMatchup = bracket.data.find(item => item.round === 'Eastern Conference Semifinals' && (item.team1 === east3rd6thWinner || item.team2 === east3rd6thWinner))
+  let eastLowerWinner
+  eastLowerMatchup.team1Wins === '4' ? eastLowerWinner = eastLowerMatchup.team1 : eastLowerWinner = eastLowerMatchup.team2
+
+
+  const eastFinalsMatchup = bracket.data.find(item => item.round === 'Eastern Conference Finals' && (item.team1 === eastUpperWinner || item.team2 === eastUpperWinner))
+  let eastFinalsWinner
+  eastFinalsMatchup.team1Wins === '4' ? eastFinalsWinner = eastFinalsMatchup.team1 : eastFinalsWinner = eastFinalsMatchup.team2
+
     return (
 
         <>
@@ -31,29 +65,28 @@ export default function EastBracket({data}) {
 
 <section className="eastConference east">
   <section className="finalsEast">
-    <img className="eastFinalistWinner" src="" alt="" />
-    <div className="blank"></div>
+    <TeamLogo className='' alt={eastFinalsWinner} src={eastFinalsWinner} year={pathnameYear}/>
     <div className="border"></div>
   </section>
   <section className="thirdRound east">
     <div className="thirdEast eastFinal click3">
       <section className="matchupThird">
-        <img className="east1st8th4th5thWinner" src="" alt="" />
-        <img className="east2nd7th3rd6thWinner" src="" alt="" />
+      <TeamLogo alt={eastUpperWinner} src={eastUpperWinner} year={pathnameYear}/>
+      <TeamLogo alt={eastLowerWinner} src={eastLowerWinner} year={pathnameYear}/>
       </section>
     </div>
   </section>
   <section className="secondRound east">
     <div className="secondEast eastUpper click2">
       <section className="matchupSecond">
-        <img className="east1st8thWinner" src="" alt="" />
-        <img className="east4th5thWinner" src="" alt="" />
+      <TeamLogo alt={east1st8thWinner} src={east1st8thWinner} year={pathnameYear}/>
+      <TeamLogo alt={east4th5thWinner} src={east4th5thWinner} year={pathnameYear}/>
       </section>
     </div>
     <div className="secondEast eastLower click2">
       <section className="matchupSecond">
-        <img className="east2nd7thWinner" src="" alt="" />
-        <img className="east3rd6thWinner" src="" alt="" />
+      <TeamLogo alt={east2nd7thWinner} src={east2nd7thWinner} year={pathnameYear}/>
+      <TeamLogo alt={east3rd6thWinner} src={east3rd6thWinner} year={pathnameYear}/>
       </section>
     </div>
   </section>
