@@ -1,7 +1,29 @@
-import { motion } from "framer-motion";
-const transition = { ease: "easeOut", duration: 0.8, ease: [0, 0.71, 0.2, 1.00] };
+import { usePathname } from 'next/navigation'
+import TeamLogo from './TeamLogo';
 
-export default function EastBracket(team) {
+
+
+export default function EastBracket({data}) {
+
+  if (data === null) {
+    // Render a loading indicator or placeholder
+    return <div></div>;
+  }
+
+  const pathname = usePathname()
+  const pathnameYear = pathname.slice(-4)
+
+
+  // Extracting east1st, east2nd, etc. from the data prop
+  const east1st = data.find((item) => item.seed === '1st').collectionName.slice(0,3);
+  const east2nd = data.find((item) => item.seed === '2nd').collectionName.slice(0,3);
+  const east3rd = data.find((item) => item.seed === '3rd').collectionName.slice(0,3);
+  const east4th = data.find((item) => item.seed === '4th').collectionName.slice(0,3);
+  const east5th = data.find((item) => item.seed === '5th').collectionName.slice(0,3);
+  const east6th = data.find((item) => item.seed === '6th').collectionName.slice(0,3);
+  const east7th = data.find((item) => item.seed === '7th').collectionName.slice(0,3);
+  const east8th = data.find((item) => item.seed === '8th').collectionName.slice(0,3);
+
     return (
 
         <>
@@ -38,35 +60,26 @@ export default function EastBracket(team) {
   <section className="firstRound east">
     <div className="firstEast eastOneEight click1">
       <section className="matchup">
-        <img className="east1st" src="" alt="" />
-        <img className="east8th" src="" alt="" />
+        <TeamLogo alt={east1st} src={east1st} year={pathnameYear}/>
+        <TeamLogo alt={east8th} src={east8th} year={pathnameYear}/>
       </section>
     </div>
     <div className="firstEast eastFourFive click1">
       <section className="matchup">
-        <img className="east4th" src="" alt="" />
-        <motion.img 
-          className="img west1st"
-          initial={{ opacity: 0, scale: 0.2 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={transition}
-          src={'https://res.cloudinary.com/doer2p9vb/image/upload/v1682978196/nba-logos/img2023/nyk.png'}
-          alt={'knicks logo'}
-          whileHover={{ scale: 1.15, transition:{ type: 'spring', stiffness: 125 } }}
-          
-          />  
+      <TeamLogo alt={east4th} src={east4th} year={pathnameYear}/>
+      <TeamLogo alt={east5th} src={east5th} year={pathnameYear}/>
       </section>
     </div>
     <div className="firstEast eastTwoSeven click1">
       <section className="matchup">
-        <img className="east2nd" src="" alt="" />
-        <img className="east7th" src="" alt="" />
+      <TeamLogo alt={east2nd} src={east2nd} year={pathnameYear}/>
+      <TeamLogo alt={east7th} src={east7th} year={pathnameYear}/>
       </section>
     </div>
     <div className="firstEast eastThreeSix click1">
       <section className="matchup">
-        <img className="east3rd" src="" alt="" />
-        <img className="east6th" src="" alt="" />
+      <TeamLogo alt={east3rd} src={east3rd} year={pathnameYear}/>
+      <TeamLogo alt={east6th} src={east6th} year={pathnameYear}/>
       </section>
     </div>
   </section>

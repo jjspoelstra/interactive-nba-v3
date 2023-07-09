@@ -25,28 +25,34 @@ body{
 img, footer img {
   height: 4rem;
   width: fit-content;
+  max-width: 100px;
   transition: height .1s linear;
+}
+
+.linkStyle{
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Remove color */
+}
+
+
+nav{
+  align-items: center;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2%;
 }
 
 footer img {
   height: 3rem;
 }
 
-img:hover, footer img:hover {
-  height: 4.5rem;
-}
-
-footer img:hover {
-  height: 3.5rem;
-}
-
 .uta {
   height: 3rem;
 }
 
-.uta:hover {
-  height: 3.5rem;
-}
 
 .hidden {
   display: none;
@@ -60,14 +66,6 @@ footer img:hover {
 
   footer img {
     height: 2rem;
-  }
-
-  img:hover, footer img:hover {
-    height: 3.5rem;
-  }
-
-  footer img:hover {
-    height: 2.5rem;
   }
 
 }
@@ -85,7 +83,8 @@ main {
   display: flex;
   max-height: 100%;
   max-width: 100%;
-  position: relative
+  position: relative;
+  margin-top: -1%;
 }
 
 .firstRound, .secondRound, .thirdRound, .finals, .finalsEast{
@@ -286,11 +285,9 @@ footer {
   display: flex;
   width: fit-content;
   align-content: space-between;
+  gap: 1rem;
 }
 
-.playin {
-  justify-content: space-between;
-}
 
 
 
@@ -650,3 +647,69 @@ footer {
 }
 
 
+
+
+/* dropdown btn */
+
+.dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+.dropdown-icon {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  max-height: 20rem;
+  overflow-y: scroll;
+  border-radius: 4px;
+  padding: 0;
+  border: none;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

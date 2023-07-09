@@ -1,8 +1,28 @@
+import { usePathname } from 'next/navigation'
+import TeamLogo from './TeamLogo';
 
-import { motion } from "framer-motion";
-const transition = { ease: "easeOut", duration: 0.8, ease: [0, 0.71, 0.2, 1.00] };
 
-export default function WestBracket(team) {
+
+
+export default function WestBracket({data}) {
+
+  if (data === null) {
+    // Render a loading indicator or placeholder
+    return <div></div>;
+  }
+
+  const pathname = usePathname()
+  const pathnameYear = pathname.slice(-4)
+
+  const west1st = data.find((item) => item.seed === '1st').collectionName.slice(0,3);
+  const west2nd = data.find((item) => item.seed === '2nd').collectionName.slice(0,3);
+  const west3rd = data.find((item) => item.seed === '3rd').collectionName.slice(0,3);
+  const west4th = data.find((item) => item.seed === '4th').collectionName.slice(0,3);
+  const west5th = data.find((item) => item.seed === '5th').collectionName.slice(0,3);
+  const west6th = data.find((item) => item.seed === '6th').collectionName.slice(0,3);
+  const west7th = data.find((item) => item.seed === '7th').collectionName.slice(0,3);
+  const west8th = data.find((item) => item.seed === '8th').collectionName.slice(0,3);
+
     return (
 
         <>
@@ -11,35 +31,26 @@ export default function WestBracket(team) {
     <section className="firstRound left top">
       <div className="firstLeft westOneEight click1">
         <section className="matchupWest top">
-          <img className="west1st" src="" alt="" />
-          <img className="west8th" src="" alt="" />
+          <TeamLogo alt={west1st} src={west1st} year={pathnameYear}/>
+          <TeamLogo alt={west8th} src={west8th} year={pathnameYear}/>
         </section>
       </div>
       <div className="firstLeft westFourFive click1">
         <section className="matchupWest">
-          <img className="west4th" src="" alt="" />
-          <img className="west5th" src="" alt="" />
+        <TeamLogo alt={west4th} src={west4th} year={pathnameYear}/>
+        <TeamLogo alt={west5th} src={west5th} year={pathnameYear}/>
         </section>
       </div>
       <div className="firstLeft westTwoSeven click1">
         <section className="matchupWest">
-          <img className="west2nd" src="" alt="" />
-          <img className="west7th" src="" alt="" />
+        <TeamLogo alt={west2nd} src={west2nd} year={pathnameYear}/>
+        <TeamLogo alt={west7th} src={west7th} year={pathnameYear}/>
         </section>
       </div>
       <div className="firstLeft westThreeSix click1">
         <section className="matchupWest">
-          <img className="west3rd" src="" alt="" />
-          <motion.img 
-          className="img west6th"
-          initial={{ opacity: 0, scale: 0.2 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={transition}
-          src={'https://res.cloudinary.com/doer2p9vb/image/upload/v1682978196/nba-logos/img2023/gsw.png'}
-          alt={'warriors logo'}
-          whileHover={{ scale: 1.15, transition:{ type: 'spring', stiffness: 125 } }}
-          
-          />  
+        <TeamLogo alt={west3rd} src={west3rd} year={pathnameYear}/>
+        <TeamLogo alt={west6th} src={west6th} year={pathnameYear}/>
         </section>
       </div>
     </section>
