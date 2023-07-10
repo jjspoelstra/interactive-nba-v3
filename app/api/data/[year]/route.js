@@ -28,8 +28,8 @@ export async function GET(request) {
     });
   }
 
-  // Store data in the cache with an appropriate expiration time
-  cache.set(year, collectionData, 3600); // Cache for 1 hour
+  
+  cache.set(year, collectionData, 100000); 
 
   return NextResponse.json(collectionData);
 }

@@ -309,9 +309,9 @@ footer {
 
 #stats{
   position: absolute;
-  transform: translate(-55.5%, 140%);
+  transform: translate(-55.5%, 125%);
   border-radius: 40px;
-  height: 320px;
+  height: 400spx;
   width: 800px;
   border: 1px solid black;
   background: white;

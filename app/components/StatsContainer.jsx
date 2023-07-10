@@ -30,7 +30,7 @@ export default function StatsContainer({ data }) {
           <section id='stats' className={isHidden ? 'hidden' : ''}>
             <span className='record'></span> Top Performers
             <section className='Players'>
-              {[...Array(5).keys()].map(i => (
+              {[...Array(6).keys()].map(i => (
                 <section key={i} className={`player${i}`}>
                   
                   <span className='playerName'>{`${filteredData[i].playerName}`}</span>
