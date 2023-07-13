@@ -3,8 +3,6 @@ import { useState } from "react";
 export default function Series({ series, topSeed, lowSeed }) {
   const games = series.gameScores;
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  console.log(series);
-  console.log(topSeed);
 
   const showGame = (index) => {
     setHoveredIndex(index);
@@ -41,8 +39,6 @@ export default function Series({ series, topSeed, lowSeed }) {
   const firstAwayTeam = games[0]?.awayTeam.toLowerCase() || "";
   const firstAwayTeamName = teamNames.find((team) => firstAwayTeam.includes(team));
   const isFirstAwayTeamTopSeed = firstAwayTeamName === getTeamName(topSeed);
-
-  console.log(isFirstAwayTeamTopSeed)
 
   let topClass = topSeed.toLowerCase()
   let lowClass = lowSeed.toLowerCase()
