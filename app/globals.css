@@ -662,7 +662,9 @@ footer {
   align-items: center;
 }
 
-
+.flex{
+  display: flex;
+}
 
 .dropdown-icon {
   margin-left: 4px;
