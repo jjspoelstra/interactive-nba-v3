@@ -4,6 +4,9 @@ import { Button } from "@mui/material"
 export default function LogOut() {
 
     return (
+        <>
+       
+        
             <Button 
                 variant="text" 
                 onClick={signOutUser} 
@@ -16,5 +19,7 @@ export default function LogOut() {
             > 
                 Sign Out
             </Button>
+
+            </>
         )
 }

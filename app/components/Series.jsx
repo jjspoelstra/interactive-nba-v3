@@ -1,6 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Series({ series, topSeed, lowSeed }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleMediaQuery = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    const mediaQuery = window.matchMedia("(max-width: 1280px)");
+    mediaQuery.addEventListener("change", handleMediaQuery);
+    handleMediaQuery(mediaQuery); // Initial check on page load
+
+    // Cleanup the listener when component unmounts
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQuery);
+    };
+  }, []);
+
   const games = series.gameScores;
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -42,8 +59,9 @@ export default function Series({ series, topSeed, lowSeed }) {
 
   let topClass = topSeed.toLowerCase()
   let lowClass = lowSeed.toLowerCase()
-
+   
   return (
+    isMobile ? <></> :
     <section>
       {games.map((game, i) => {
         const awayScore = Number(game.awayTeam.slice(-3).trim());
@@ -142,5 +160,5 @@ export default function Series({ series, topSeed, lowSeed }) {
         }
       })}
     </section>
-  );
+  ) 
 }

@@ -25,7 +25,7 @@ body{
 img, footer img {
   height: 4rem;
   width: fit-content;
-  max-width: 100px;
+  max-width: 120px;
   transition: height .1s linear;
 }
 
@@ -39,10 +39,17 @@ nav{
   align-items: center;
 }
 
+.otherNav{
+    position: fixed;
+    top: 10;
+    right: 10;
+}
+
 header{
   display: flex;
-  justify-content: space-between;
-  margin: 0 2%;
+  height: 10%;
+  margin: -1% 2% 1%;
+  font-size: 20px;
 }
 
 footer img {
@@ -84,7 +91,7 @@ main {
   max-height: 100%;
   max-width: 100%;
   position: relative;
-  margin-top: -1%;
+  margin-top: 2%;
 }
 
 .firstRound, .secondRound, .thirdRound, .finals, .finalsEast{
@@ -103,22 +110,24 @@ main {
 
 
 .finals .border {
-  height: 25%;
-  border-top: 5px solid grey;
+  height: 36.24%;
+  border-top: 3px solid grey;
+}
+
+.finalsEast .border{
+  height: 29.5%;
 }
 .border{
   height: 0%;
-  border-top: 5px solid grey;
+  border-top: 3px solid grey;
 }
 
-.finalsEast .teamLogo, .finals .teamLogo{
-  position: fixed;
-  right: 35.5%;
+.finalsEast .teamLogo{
+  transform: translate(88%, 200px);
 }
 
 .finals .teamLogo{
-  position: fixed;
-  left: 35.25%;
+  transform: translate(-35px, 260px);
 }
 
 
@@ -135,9 +144,9 @@ main {
 .firstLeft, .secondLeft, .thirdWest{
   height: 12.5%;
   width: 100%;
-  border-top: 5px solid grey;
-  border-right: 5px solid grey;
-  border-bottom: 5px solid grey;
+  border-top: 3px solid grey;
+  border-right: 3px solid grey;
+  border-bottom: 3px solid grey;
 }
 
 .secondLeft {
@@ -160,9 +169,9 @@ main {
 .firstEast, .secondEast, .thirdEast{
   height: 12.5%;
   width: 100%;
-  border-top: 5px solid grey;
-  border-left: 5px solid grey;
-  border-bottom: 5px solid grey;
+  border-top: 3px solid grey;
+  border-left: 3px solid grey;
+  border-bottom: 3px solid grey;
 }
 
 .secondEast {
@@ -180,18 +189,18 @@ main {
 
 /* TEAMS ARRANGEMENT ON THE BRACKET */
 
-.matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img {
-  display: block;
+.matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img, .finalsEast img, .finals img, .champion img{
+  display: inline-block;
 }
 
-.matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img {
+.matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img, .finalsEast img, .finals img, .champion img{
   height: 4rem;
   width: fit-content;
 }
 
 @media (max-width: 1200px) {
   /* CSS rules for 1200px */
-  .matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img {
+  .matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img, .finalsEast img, .finals img, .champion img {
     height: 3.5rem;
   }
   .matchup, .matchupWest {
@@ -209,7 +218,7 @@ main {
 
 @media (max-width: 900px) {
   /* CSS rules for 900px */
-  .matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img {
+  .matchup img, .matchupWest img, .matchupSecond img, .matchupSecondWest img, .matchupThird img, .matchupThirdWest img, .finalsEast img, .finals img, .champion img {
     height: 3rem;
   }
 }
@@ -344,171 +353,182 @@ footer {
   width: fit-content;
   position: absolute;
   z-index: 1;
+  font-size: large;
 }
 .east .game{
   width: fit-content;
   z-index: 1;
+  font-size: large;
 }
+
+.champion{
+  width: fit-content
+}
+
 
 .east .game .toolTipText{
   transform: scaleX(-1);
 }
 
+.champion .lowSeedWin1 .toolTipText, .champion .lowSeedWin2 .toolTipText, .champion .lowSeedWin3 .toolTipText, .champion .lowSeedWin4 .toolTipText{
+  transform: scaleX(-1);
+}
+
 /* west 1st round */
 .topSeedWin1 {
-  transform: translate(65px, -40px);
+  transform: translate(65px, -57px);
 }
 .lowSeedWin1{
-  transform: translate(65px, 25px);
+  transform: translate(65px, 40px);
 }
 .topSeedWin2{
-  transform: translate(80px, -40px);
+  transform: translate(80px, -57px);
 }
 .lowSeedWin2{
-  transform: translate(80px, 25px);
+  transform: translate(80px, 40px);
 }
 .topSeedWin3{
-  transform: translate(95px, -40px);
+  transform: translate(95px, -57px);
 }
 .lowSeedWin3{
-  transform: translate(95px, 25px);
+  transform: translate(95px, 40px);
 }
 .topSeedWin4{
-  transform: translate(110px, -40px);
+  transform: translate(110px, -57px);
 }
 .lowSeedWin4{
-  transform: translate(110px, 25px);
+  transform: translate(110px, 40px);
 }
 
 /* east 1st round */
 .east .topSeedWin1 {
-  transform: scaleX(-1) translate(50px, -40px);
+  transform: scaleX(-1) translate(50px, -57px);
 }
 .east .lowSeedWin1{
-  transform: scaleX(-1) translate(50px, 25px);
+  transform: scaleX(-1) translate(50px, 40px);
 }
 .east .topSeedWin2{
-  transform: scaleX(-1) translate(65px, -40px);
+  transform: scaleX(-1) translate(65px, -57px);
 }
 .east .lowSeedWin2{
-  transform: scaleX(-1) translate(65px, 25px); 
+  transform: scaleX(-1) translate(65px, 40px); 
 }
 .east .topSeedWin3{
-  transform: scaleX(-1) translate(80px, -40px);
+  transform: scaleX(-1) translate(80px, -57px);
 }
 .east .lowSeedWin3{
-  transform: scaleX(-1) translate(80px, 25px);
+  transform: scaleX(-1) translate(80px, 40px);
 }
 .east .topSeedWin4{
-  transform: scaleX(-1) translate(95px, -40px);
+  transform: scaleX(-1) translate(95px, -57px);
 }
 .east .lowSeedWin4{
-  transform: scaleX(-1) translate(95px, 25px);
+  transform: scaleX(-1) translate(95px, 40px);
 }
 
 /* west 2nd round */
 .westUpper .topSeedWin1, .westLower .topSeedWin1 {
-  transform: translate(50px, -80px);
+  transform: translate(60px, -98px);
 }
 .westUpper .lowSeedWin1, .westLower .lowSeedWin1{
-  transform: translate(50px, 60px);
+  transform: translate(60px, 79px);
 }
 .westUpper .topSeedWin2, .westLower .topSeedWin2{
-  transform: translate(65px, -80px);
+  transform: translate(75px, -98px);
 }
 .westUpper .lowSeedWin2, .westLower .lowSeedWin2{
-  transform: translate(65px, 60px);
+  transform: translate(75px, 79px);
 }
 .westUpper .topSeedWin3, .westLower .topSeedWin3{
-  transform: translate(80px, -80px);
+  transform: translate(90px, -98px);
 }
 .westUpper .lowSeedWin3, .westLower .lowSeedWin3{
-  transform: translate(80px, 60px);
+  transform: translate(90px, 79px);
 }
 .westUpper .topSeedWin4, .westLower .topSeedWin4{
-  transform: translate(95px, -80px);
+  transform: translate(105px, -98px);
 }
 .westUpper .lowSeedWin4, .westLower .lowSeedWin4{
-  transform: translate(95px, 60px);
+  transform: translate(105px, 79px);
 }
 
 /* east 2nd round */
 .eastUpper .topSeedWin1 , .eastLower .topSeedWin1{
-  transform: scaleX(-1) translate(50px, -80px);
+  transform: scaleX(-1) translate(60px, -98px);
 }
 .eastUpper .lowSeedWin1, .eastLower .lowSeedWin1{
-  transform: scaleX(-1) translate(50px, 60px);
+  transform: scaleX(-1) translate(60px, 79px);
 }
 .eastUpper .topSeedWin2, .eastLower .topSeedWin2{
-  transform: scaleX(-1) translate(65px, -80px);
+  transform: scaleX(-1) translate(75px, -98px);
 }
 .eastUpper .lowSeedWin2, .eastLower .lowSeedWin2{
-  transform: scaleX(-1) translate(65px, 60px);
+  transform: scaleX(-1) translate(75px, 79px);
 }
 .eastUpper .topSeedWin3, .eastLower .topSeedWin3{
-  transform: scaleX(-1) translate(80px, -80px);
+  transform: scaleX(-1) translate(90px, -98px);
 }
 .eastUpper .lowSeedWin3, .eastLower .lowSeedWin3{
-  transform: scaleX(-1) translate(80px, 60px);
+  transform: scaleX(-1) translate(90px, 79px);
 }
 .eastUpper .topSeedWin4, .eastLower .topSeedWin4{
-  transform: scaleX(-1) translate(95px, -80px);
+  transform: scaleX(-1) translate(105px, -98px);
 }
 .eastUpper .lowSeedWin4, .eastLower .lowSeedWin4{
-  transform: scaleX(-1) translate(95px, 60px);
+  transform: scaleX(-1) translate(105px, 79px);
 }
 
 /* west finals  */
 
 .westFinal .topSeedWin1 {
-  transform: translate(60px, -180px);
+  transform: translate(60px, -197px);
 }
 .westFinal .lowSeedWin1{
-  transform: translate(60px, 160px);
+  transform: translate(60px, 176px);
 }
 .westFinal .topSeedWin2{
-  transform: translate(75px, -180px);
+  transform: translate(75px, -197px);
 }
 .westFinal .lowSeedWin2{
-  transform: translate(75px, 160px);
+  transform: translate(75px, 176px);
 }
 .westFinal .topSeedWin3{
-  transform: translate(90px, -180px);
+  transform: translate(90px, -197px);
 }
 .westFinal .lowSeedWin3{
-  transform: translate(90px, 160px);
+  transform: translate(90px, 176px);
 }
 .westFinal .topSeedWin4{
-  transform: translate(105px, -180px);
+  transform: translate(105px, -197px);
 }
 .westFinal .lowSeedWin4{
-  transform: translate(105px, 160px);
+  transform: translate(105px, 176px);
 }
 
 /* east finals */
 .eastFinal .topSeedWin1 {
-  transform: scaleX(-1) translate(55px, -180px);
+  transform: scaleX(-1) translate(55px, -197px);
 }
 .eastFinal .lowSeedWin1{
-  transform: scaleX(-1) translate(55px, 160px);
+  transform: scaleX(-1) translate(55px, 176px);
 }
 .eastFinal .topSeedWin2{
-  transform: scaleX(-1) translate(70px, -180px);
+  transform: scaleX(-1) translate(70px, -197px);
 }
 .eastFinal .lowSeedWin2{
-  transform: scaleX(-1) translate(70px, 160px);
+  transform: scaleX(-1) translate(70px, 176px);
 }
 .eastFinal .topSeedWin3{
-  transform: scaleX(-1) translate(85px, -180px);
+  transform: scaleX(-1) translate(85px, -197px);
 }
 .eastFinal .lowSeedWin3{
-  transform: scaleX(-1) translate(85px, 160px);
+  transform: scaleX(-1) translate(85px, 176px);
 }
 .eastFinal .topSeedWin4{
-  transform: scaleX(-1) translate(100px, -180px);
+  transform: scaleX(-1) translate(100px, -197px);
 }
 .eastFinal .lowSeedWin4{
-  transform: scaleX(-1) translate(100px, 160px);
+  transform: scaleX(-1) translate(100px, 176px);
 }
 
 
@@ -516,28 +536,28 @@ footer {
 /* finals */
 
 .champion .topSeedWin1 {
-  transform: translate(-180px, 160px);
+  transform: translate(-700%, 172px);
 }
 .champion .lowSeedWin1{
-  transform: scaleX(-1) translate(-220px, 158px);
+  transform: scaleX(-1) translate(-900%, 171px);
 }
 .champion .topSeedWin2{
-  transform: translate(-165px, 160px);
+  transform: translate(-600%, 172px);
 }
 .champion .lowSeedWin2{
-  transform: scaleX(-1) translate(-205px, 158px);
+  transform: scaleX(-1) translate(-800%, 171px);
 }
 .champion .topSeedWin3{
-  transform: translate(-150px, 160px);
+  transform: translate(-500%, 172px);
 }
 .champion .lowSeedWin3{
-  transform: scaleX(-1) translate(-190px, 158px);
+  transform: scaleX(-1) translate(-700%, 171px);
 }
 .champion .topSeedWin4{
-  transform: translate(-135px, 160px);
+  transform: translate(-400%, 172px);
 }
 .champion .lowSeedWin4{
-  transform: scaleX(-1) translate(-175px, 158px);
+  transform: scaleX(-1) translate(-600%, 171px);
 }
 
 
@@ -662,6 +682,10 @@ footer {
   align-items: center;
 }
 
+.dropdown:hover{
+  color: grey
+}
+
 .flex{
   display: flex;
 }
@@ -675,9 +699,9 @@ footer {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -20%;
   background-color: #f1f1f1;
-  width: 100%;
+  width: 115%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   max-height: 20rem;
@@ -687,8 +711,12 @@ footer {
   border: none;
 }
 
+.dropdown-content *{
+  text-align: left;
+}
+
 .dropdown-content::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 .dropdown-content::-webkit-scrollbar-track {
@@ -720,3 +748,6 @@ footer {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
+

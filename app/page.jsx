@@ -3,8 +3,7 @@
 import { useAuthContext } from "@/firebase/AuthContext"
 import { Button } from "@mui/material"
 import Link from "next/link"
-import LogOut from "./components/LogOut";
-import SignUp from "./components/SignUp";
+import Header from "./components/Header"
 import { useState } from "react";
 
 // Define the animation variants
@@ -21,26 +20,10 @@ export default function Home() {
   const handleClosePopup = () => {
       setPopupOpen(false);
   };
-  const {user} = useAuthContext() //this will be ported to header soon, along with other auth changes
+  const {user} = useAuthContext() 
     return (
       <>
-      <section className='flex'>
-        <h1> welcome to the interactive history of the nba </h1>
-      {user ? <LogOut/> : <Button 
-                variant="text" 
-                onClick={handleOpenPopup}
-                
-                className="fixed top-0 right-0"
-                sx={{
-                    position: 'fixed', 
-                    top: 10, 
-                    right: 10
-                }}
-            > 
-                Sign in
-            </Button>}
-          <SignUp open={popupOpen} onClose={handleClosePopup} />
-      </section>
+      <Header/>
       
       
       <Button variant='text'><Link href={"brackets/2023"}>enter</Link></Button>

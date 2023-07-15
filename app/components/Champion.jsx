@@ -3,6 +3,7 @@ import TeamLogo from './TeamLogo';
 import Series from './Series';
 
 export default function Champion({bracket}){
+  
   if (bracket === null) {
     // Render a loading indicator or placeholder
     return <div></div>;
