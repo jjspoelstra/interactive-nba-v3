@@ -7,7 +7,7 @@ export default function LogOut() {
         <>
        
         
-            <Button 
+            <span
                 variant="text" 
                 onClick={signOutUser} 
                 className="fixed top-0 right-0"
@@ -18,7 +18,7 @@ export default function LogOut() {
                 }}
             > 
                 Sign Out
-            </Button>
+            </span>
 
             </>
         )

@@ -52,7 +52,7 @@ const SignUp = () => {
           onChange={(e) => setFavoriteTeams(e.target.value)}
           required
         />
-        <Button type="submit" href="/">Submit</Button>
+        <Button type="submit" href="/brackets/2023">Submit</Button>
       </form>
     </div>
   );

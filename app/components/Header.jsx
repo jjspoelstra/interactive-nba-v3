@@ -6,6 +6,8 @@ import { useAuthContext } from "@/firebase/AuthContext"
 import { Button } from "@mui/material"
 import LogOut from "./LogOut";
 import SignUp from "./SignUp";
+import { color } from "framer-motion";
+import { grey } from "@mui/material/colors";
 
 export default function Header() {
   const pathname = usePathname();
@@ -35,10 +37,11 @@ export default function Header() {
 
   return (
     <>
-      <header style={{ position: 'fixed', top: 10, width: '100%', zIndex: 1000 }}>
+      <header style={{ position: 'fixed', top: 10, width: '100%', zIndex: 1000}}>
         
         <nav className="flex">
-        <Link href={'/brackets/2023'} className="linkStyle">
+          <section>
+          <Link href={'/brackets/2023'} className="linkStyle">
           <span>Interactive NBA History /</span>
         </Link>
           {pathnameArray.map((e, index) => (
@@ -66,30 +69,32 @@ export default function Header() {
               )}
             </span>
           ))}
+          </section>
+        
 
 
        
-
-        <Link href={`/`} className="linkStyle">
-            <Button sx={{
+              <section className="nav">
+              <Link href={`/brackets/2023`} className="linkStyle">
+            <span sx={{
                 position: "fixed",
                 top: 10,
                 right: 200,
-              }} disabled > Home</Button>
+              }} disabled >  Home </span>
         </Link>   
-
-        <Link href={`/contact`} className="linkStyle">
-            <Button sx={{
+              |
+        {/* <Link href={`/contact`} className="linkStyle">
+            <span sx={{
                 position: "fixed",
                 top: 10,
                 right: 105,
-              }} disabled> Contact</Button>
+              }} disabled> Contact </span>
         </Link>  
-        
+        | */}
         {user ? (
             <LogOut />
           ) : (
-            <Button
+            <span
               variant="text"
               onClick={handleOpenPopup}
               disabled
@@ -100,8 +105,8 @@ export default function Header() {
               }}
               
             >
-             Sign in
-            </Button>
+              {` Sign In`}
+            </span>
           )}
         
           
@@ -110,6 +115,8 @@ export default function Header() {
           
 
           <SignUp open={popupOpen} onClose={handleClosePopup} />
+              </section>
+       
         </nav>
       </header>
     </>
