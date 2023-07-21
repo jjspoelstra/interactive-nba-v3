@@ -1,18 +1,32 @@
+// AppProvider
 import React, { createContext, useState } from 'react';
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [isHidden, setIsHidden] = useState(true);
+  const [teamStats, setTeamStats] = useState(null);
+  const [isSocialsOpen, setIsSocialsOpen] = useState(false);
+  const [socialsSide, setSocialsSide] = useState(null);
+  const [lastClickedLogo, setLastClickedLogo] = useState(null);
 
   const toggleHidden = () => {
     setIsHidden(!isHidden);
   };
 
-  const [teamStats, setTeamStats] = useState(null);
-
   const getTeamStats = (data) => {
     setTeamStats(data);
+  };
+
+  const toggleSocials = (clickedLogo, side) => {
+    setSocialsSide(side); // Set side
+
+    if (lastClickedLogo === clickedLogo) {
+      setIsSocialsOpen(!isSocialsOpen);
+    } else {
+      setIsSocialsOpen(true);
+      setLastClickedLogo(clickedLogo);
+    }
   };
 
   const contextValue = {
@@ -20,6 +34,11 @@ const AppProvider = ({ children }) => {
     toggleHidden,
     teamStats,
     getTeamStats,
+    isSocialsOpen,
+    setIsSocialsOpen,
+    toggleSocials,
+    socialsSide,
+    lastClickedLogo,
   };
 
   return (

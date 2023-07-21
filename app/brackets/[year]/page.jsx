@@ -14,6 +14,7 @@ import { fetchData } from '@/app/components/fetchData';
 import Champion from '@/app/components/Champion';
 
 import { AppProvider } from '@/app/components/statsContext';
+import SocialsContainer from '@/app/components/SocialsContainer';
 // Define the animation variants
 
 
@@ -76,7 +77,7 @@ export default function Home() {
           <Champion bracket={data.playoffData}/>
           <StatsContainer data={data.containerData}/>
           <EastBracket data={data.eastData} bracket={data.playoffData}/>
-          
+          <SocialsContainer/>
         </main>
         <Lotto data={data.lottoData} />
         </AppProvider>

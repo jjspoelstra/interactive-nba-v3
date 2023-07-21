@@ -38,7 +38,7 @@ export default function Header() {
       <header style={{ position: 'fixed', top: 10, width: '100%', zIndex: 1000 }}>
         
         <nav className="flex">
-        <Link href={`/`} className="linkStyle">
+        <Link href={'/brackets/2023'} className="linkStyle">
           <span>Interactive NBA History /</span>
         </Link>
           {pathnameArray.map((e, index) => (
@@ -75,7 +75,7 @@ export default function Header() {
                 position: "fixed",
                 top: 10,
                 right: 200,
-              }} > Home</Button>
+              }} disabled > Home</Button>
         </Link>   
 
         <Link href={`/contact`} className="linkStyle">
@@ -92,12 +92,13 @@ export default function Header() {
             <Button
               variant="text"
               onClick={handleOpenPopup}
-
+              disabled
               sx={{
                 position: "fixed",
                 top: 10,
                 right: 10,
               }}
+              
             >
              Sign in
             </Button>
