@@ -2,7 +2,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Box } from '@mui/material';
 import { useContext, useRef, useEffect } from 'react';
-import { AppContext } from './statsContext';
+import { AppContext } from '../statsContext';
+import SocialsHeader from './SocialsHeader';
+import style from './socials.style.css'
+import Insights from './Insights';
 
 const SocialsContainer = () => {
   const { isSocialsOpen, setIsSocialsOpen, socialsSide } = useContext(AppContext);
@@ -36,6 +39,7 @@ const SocialsContainer = () => {
       {isSocialsOpen && (
         <motion.div
           ref={containerRef}
+          className='borderSocial'
           initial="closed"
           animate="open"
           exit="closed"
@@ -43,6 +47,8 @@ const SocialsContainer = () => {
           transition={{ duration: 0.1, type: 'spring', ease:'linear', stiffness: 75, damping: 20 }}
           style={{
             position: 'fixed',
+            display: 'flex',
+            justifyContent: 'center',
             top: 0,
             left: socialsSide === 'left' ? 0 : '50%',
             width: '50%',
@@ -53,10 +59,18 @@ const SocialsContainer = () => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Your content here */}
-          <p>Socials coming soon</p>
+          <SocialsHeader/>
+          
+          <Insights/>
         </motion.div>
       )}
+
+      
     </AnimatePresence>
+
+    
+
+
   );
 };
 

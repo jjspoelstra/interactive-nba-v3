@@ -14,7 +14,7 @@ import { fetchData } from '@/app/components/fetchData';
 import Champion from '@/app/components/Champion';
 
 import { AppProvider } from '@/app/components/statsContext';
-import SocialsContainer from '@/app/components/SocialsContainer';
+import SocialsContainer from '@/app/components/socials/SocialsContainer';
 // Define the animation variants
 
 
